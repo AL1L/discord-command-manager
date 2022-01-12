@@ -21,7 +21,7 @@ class DiscordError {
   }
 }
 
-export default class REST extends EventSource {
+export default class REST extends EventTarget {
   constructor() {
     super();
     this.version = '9';
