@@ -1,0 +1,99 @@
+.switch-input {
+  position: relative;
+}
+
+.switch-body {
+  --switch-color: rgb(114, 118, 125);
+  --symbol1path: path("M5.13231 6.72963L6.7233 5.13864L14.855 13.2704L13.264 14.8614L5.13231 6.72963Z");
+  --symbol2path: path("M13.2704 5.13864L14.8614 6.72963L6.72963 14.8614L5.13864 13.2704L13.2704 5.13864Z");
+  border-radius: 14px;
+  width: 40px;
+  height: 24px;
+  background-color: var(--switch-color);
+  transition: 150ms linear background-color;
+  position: relative;
+}
+
+.switch-input input:active + .switch-body {
+  --switch-color: rgba(100, 137, 126);
+  --symbol1path: path("M6.56666 11.0013L6.56666 8.96683L13.5667 8.96683L13.5667 11.0013L6.56666 11.0013Z");
+  --symbol2path: path("M13.5582 8.96683L13.5582 11.0013L6.56192 11.0013L6.56192 8.96683L13.5582 8.96683Z");
+}
+
+.switch-input input:checked + .switch-body {
+  --switch-color: rgb(67, 181, 129);
+  --symbol1path: path("M7.89561 14.8538L6.30462 13.2629L14.3099 5.25755L15.9009 6.84854L7.89561 14.8538Z");
+  --symbol2path: path("M4.08643 11.0903L5.67742 9.49929L9.4485 13.2704L7.85751 14.8614L4.08643 11.0903Z");
+}
+
+.switch-input input:checked:active + .switch-body {
+  --switch-color: rgba(81, 162, 128);
+  --symbol1path: path("M6.56666 11.0013L6.56666 8.96683L13.5667 8.96683L13.5667 11.0013L6.56666 11.0013Z");
+  --symbol2path: path("M13.5582 8.96683L13.5582 11.0013L6.56192 11.0013L6.56192 8.96683L13.5582 8.96683Z");
+}
+
+.switch-input .switch-symbol path {
+  fill: var(--switch-color);
+  transition: 150ms linear;
+}
+
+.switch-input .switch-symbol path:first-child {
+  d: var(--symbol1path);
+}
+
+.switch-input .switch-symbol path:last-child {
+  d: var(--symbol2path);
+}
+
+.switch-input input {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.switch-body .slider {
+  display: block;
+  position: absolute;
+  left: -3px;
+  width: 28px;
+  height: 18px;
+  margin: 3px;
+  transition: 150ms linear;
+}
+
+.switch-input input:disabled + .switch-body .slider {
+  opacity: 0.5;
+}
+
+.switch-input input:active + .switch-body .slider {
+  left: 1px;
+}
+
+.switch-input input:checked + .switch-body .slider {
+  left: 12px;
+}
+
+.switch-input input:active:checked + .switch-body .slider {
+  left: 8px;
+}
+
+.switch-body .slider .switch-handle {
+  transition: 150ms linear;
+  position: relative;
+}
+
+.switch-input input:active + .switch-body .switch-handle {
+  width: 28px;
+  height: 18px;
+  y: 1;
+  x: 0;
+}
+
+.switch-input input:checked:active + .switch-body .switch-handle {
+  x: 0;
+}
