@@ -57,7 +57,7 @@ export default function Command({ command, updateCommand, deleteCommand }) {
   const created = convertSnowflakeToDate(id);
   const edited = version && convertSnowflakeToDate(version);
 
-  return <details open={command.id ? true : undefined}>
+  return <details open={command.id ? undefined : true}>
     <summary>
       <div className="name">{name}<span>{options && options.filter((o) => o.required).map((o) => <span key={o.name}>{o.name}</span>)}{optionalCount ? <small>+{optionalCount} optional</small> : null}</span></div>
       <p>{description}</p>
