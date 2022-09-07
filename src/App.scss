@@ -399,6 +399,13 @@ button {
     padding: 10px 16px;
   }
 
+  &.medium {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    padding: 6px 10px;
+  }
+
   &.danger {
     background-color: hsl(0, 85.6%, 44.1%);
     color: #fff;
@@ -415,5 +422,40 @@ button {
     &:hover {
       background-color: rgb(81, 162, 128);
     }
+  }
+
+  &.warning {
+    background-color: rgb(250, 168, 26);
+    color: #fff;
+
+    &:hover {
+      background-color: rgb(190, 132, 31);
+    }
+  }
+}
+
+.choice-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.choice-add {
+  margin-left: 0.5em;
+}
+
+.choice {
+  border-radius: 3px;
+  color: #fff;
+  background-color: #36393f;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75em;
+  border: 1px solid #202225;
+
+  & > input {
+    height: 2em;
+    width: 150px;
   }
 }

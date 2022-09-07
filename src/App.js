@@ -79,7 +79,7 @@ function Login({ setRest, setUser }) {
       <label>Discord Application Command Manager</label>
       <h1>Login</h1>
       {error && <div className='error'>{error}</div>}
-      <label for="token">Bot Token</label>
+      <label htmlFor="token">Bot Token</label>
       <input disabled={loading} id="token" value={input} onChange={(e) => setInput(e.target.value)} />
       <div className='seperator' />
       <button className='big' disabled={loading} onClick={onClick}>Login</button>

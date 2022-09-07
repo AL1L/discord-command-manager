@@ -5,6 +5,7 @@ import isEqual from "lodash.isequal";
 import isObject from "lodash.isobject";
 import transform from "lodash.transform";
 import { Error } from "./Error";
+import Options from "./OptionFields/Options";
 
 function difference(object, base) {
   function changes(object, base) {
@@ -77,19 +78,19 @@ export default function Command({ command, updateCommand, deleteCommand }) {
       </div>
       <div className="actions">
         <button className="big danger" onClick={() => {
-          const confirmed = window.confirm(`Are you sure you want to delete the command ${name}?`);
+          const confirmed = window.confirm(`Are you sure you want to delete the command /${name}?`);
           if (!confirmed) return;
           deleteCommand(command);
         }}>Delete</button>
       </div>
     </div>
     {/* <div className="input-wrapper">
-      <label for={`${id}-name`}>Name</label>
+      <label htmlFor={`${id}-name`}>Name</label>
       <input id={`${id}-name`} value={`/${editCommand.name}`} readOnly required />
     </div> */}
     <Error errors={errors} name="name" />
     <div className="input-wrapper">
-      <label for={`${id}-description`}>Description</label>
+      <label htmlFor={`${id}-description`}>Description</label>
       <input id={`${id}-description`} value={editCommand.description} disabled={loading} onChange={(e) => {
         const clone = cloneDeep(editCommand);
         clone.description = e.target.value;
@@ -97,30 +98,7 @@ export default function Command({ command, updateCommand, deleteCommand }) {
       }} />
       <Error errors={errors} name="description" />
     </div>
-    <div className="input-wrapper">
-      <label>Options</label>
-      {editCommand.options && (
-        <div className="options-list">{(
-          editCommand.options
-            .map((option, i) => (
-              <Option key={option.name}
-                errors={
-                  errors && errors.options && errors.options[i]
-                    ? errors.options[i]
-                    : {}
-                }
-                id={id}
-                option={option}
-                loading={loading}
-                setOption={(o) => {
-                  const clone = cloneDeep(editCommand);
-                  clone.options[i] = o;
-                  setEditCommand(clone);
-                }} />
-            ))
-        )}</div>
-      )}
-    </div>
+    <Options optionOrCommand={editCommand} loading={loading} id={id} setter={setEditCommand} />
     <div className="button-group">
       <button className="big" disabled={loading} onClick={() => {
         const name = prompt("Enter the name of the new option:");
@@ -151,6 +129,7 @@ export default function Command({ command, updateCommand, deleteCommand }) {
         <pre>
           {JSON.stringify(diff, (k, v) => v === undefined ? '<to be removed>' : v, 2)}
         </pre>
+        {!command.guild_id && <h4>Global commands can also take up to an hour to update</h4>}
       </div>
     )}
   </details>;

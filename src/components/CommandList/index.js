@@ -41,7 +41,7 @@ export default function CommandList({ user, rest, guild }) {
   }, [commands, rest, manyRoute, singleRoute, setCommands]);
 
   const deleteCommand = useCallback((command) => {
-    if (!commands.id) {
+    if (!command.id) {
       setCommands(commands.filter(c => c.name !== command.name));
       return;
     }
