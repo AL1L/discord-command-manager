@@ -36,8 +36,7 @@ export default function OptionChoices({ id, name, option, setOption, loading }) 
           setOption(clone);
         }}>+</button></label>
         <div className="choice-list">
-          {!(option.choices || []).length && <div className="choice-none">No choices</div>}
-          {(option.choices || []).map((choice, i) => (
+          {option.choices ? option.choices.map((choice, i) => (
             <Choice
               key={choice.name}
               id={id}
@@ -55,7 +54,7 @@ export default function OptionChoices({ id, name, option, setOption, loading }) 
                   delete clone.choices;
                 setOption(clone);
               }} />
-          ))}
+          )) : <div className="choice-none">No choices</div>}
         </div>
       </div>
     </div>
