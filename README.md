@@ -11,3 +11,6 @@ And yeah I know the code isnt the prettiest, and I should probably add more vali
 ![Screenshot of the App](https://i.dlc.gg/dd6nc)
 
 ![Another screenshot](https://i.dlc.gg/ishqf)
+
+Contributions welcome!
+
