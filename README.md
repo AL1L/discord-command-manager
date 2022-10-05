@@ -13,4 +13,3 @@ And yeah I know the code isnt the prettiest, and I should probably add more vali
 ![Another screenshot](https://i.dlc.gg/ishqf)
 
 Contributions welcome!
-
